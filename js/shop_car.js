@@ -42,7 +42,7 @@ var shopCar = (function(){
         inserData:function(data){
             // console.log(this.shopList)  // 
             // data = data.data;
-            //  console.log(data)
+             console.log(data)
             var arr = [];
             for(var i = 0; i < data.length; i++){
                 var shop;
