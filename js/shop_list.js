@@ -6,7 +6,18 @@ var shopList = (function(){
             this.getData();
         },
         event:function(){
-            
+            var _this = this;
+            this.$ele.addEventListener("click",function(e){
+                e = e || window.event;
+                var target = e.target || e.srcElement;
+                // 给加入购物车按钮添加事件
+                if(target.nodeName === "BUTTON" && target.className === 'btn shop-btn-car'){
+                    var id = target.getAttribute('attr-id');// 获取商品的id
+                    var count = target.parentNode.querySelector('.shop-count').value;  //获取商品数量
+                    console.log(count)
+                     _this.addCar(id,count)// 获取完商品的id和数量后，执行加入购物车函数
+                }
+            },false);
         },
         // 获取数据的函数
         getData:function(){
@@ -52,7 +63,5 @@ var shopList = (function(){
                localStorage.shopList = JSON.stringify(shopList)  // 再把本地商品转成字符串发出去
            }
         }
-
-        
     }
 }())
